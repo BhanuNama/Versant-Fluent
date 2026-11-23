@@ -43,20 +43,39 @@ async function bootstrap() {
     })
   );
 
-  // CORS configuration
+  // CORS configuration (always allow same-origin requests + configured CLIENT_ORIGIN / RENDER_EXTERNAL_URL)
   const normalizedOrigins = config.clientOrigins.map((o) => o.replace(/\/$/, ''));
+  if (process.env.RENDER_EXTERNAL_URL) {
+    normalizedOrigins.push(process.env.RENDER_EXTERNAL_URL.replace(/\/$/, ''));
+  }
   const hasExplicitOrigins = Boolean(process.env.CLIENT_ORIGIN?.trim());
   app.use(
-    cors({
-      origin: (origin, callback) => {
-        if (!origin) return callback(null, true);
-        const cleanOrigin = origin.replace(/\/$/, '');
-        if (!config.isProd || !hasExplicitOrigins || normalizedOrigins.includes('*') || normalizedOrigins.includes(cleanOrigin)) {
-          return callback(null, true);
+    cors((req, callback) => {
+      const origin = req.headers.origin;
+      if (!origin) return callback(null, { origin: true, credentials: true });
+
+      const cleanOrigin = origin.replace(/\/$/, '');
+      let isSameHost = false;
+      try {
+        const reqHost = req.headers['x-forwarded-host'] || req.headers.host;
+        if (reqHost && new URL(cleanOrigin).host === String(reqHost).split(',')[0].trim()) {
+          isSameHost = true;
         }
-        return callback(new Error(`Origin ${origin} not allowed by CORS`), false);
-      },
-      credentials: true,
+      } catch {
+        // ignore invalid origin URL
+      }
+
+      const allowed =
+        isSameHost ||
+        !config.isProd ||
+        !hasExplicitOrigins ||
+        normalizedOrigins.includes('*') ||
+        normalizedOrigins.includes(cleanOrigin);
+
+      if (allowed) {
+        return callback(null, { origin: true, credentials: true });
+      }
+      return callback(new Error(`Origin ${origin} not allowed by CORS`), { origin: false });
     })
   );
 

@@ -57,12 +57,26 @@ export async function seedItems(force = false): Promise<{ inserted: number; upda
   const s = db();
   let inserted = 0;
   let updated = 0;
-  for (const item of loadSeedItems()) {
+  const seedList = loadSeedItems();
+
+  if (!force) {
+    const existing = await s.items.find({});
+    const existingIds = new Set(existing.map((it) => it._id));
+    for (const item of seedList) {
+      if (!existingIds.has(item._id)) {
+        await s.items.insert(item);
+        inserted++;
+      }
+    }
+    return { inserted, updated };
+  }
+
+  for (const item of seedList) {
     const existing = await s.items.get(item._id);
     if (!existing) {
       await s.items.insert(item);
       inserted++;
-    } else if (force) {
+    } else {
       const { _id, createdAt, ...rest } = item;
       await s.items.update(item._id, rest);
       updated++;
