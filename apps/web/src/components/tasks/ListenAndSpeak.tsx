@@ -125,6 +125,8 @@ export function ListenAndSpeak({ sessionId, item, onSubmit, disabled }: Props) {
     const result = await stopRecording();
     if (result) {
       handleAnswerFinished(result.blob, result.durationMs);
+    } else {
+      handleAnswerFinished(new Blob([], { type: 'audio/webm' }), 0);
     }
   };
 

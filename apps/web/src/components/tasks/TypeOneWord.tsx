@@ -24,8 +24,8 @@ export function TypeOneWord({ item, onSubmit, disabled }: Props) {
     onSubmit(value.trim());
   };
 
-  // Render prompt with distinct blank highlighting
-  const parts = item.prompt.split('____');
+  // Render prompt with distinct blank highlighting (handles 3+ underscores)
+  const parts = item.prompt.split(/_{3,}/);
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full max-w-xl mx-auto">

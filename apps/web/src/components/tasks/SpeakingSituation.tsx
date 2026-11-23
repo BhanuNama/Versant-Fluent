@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import type { PublicItem } from '@fluentpath/shared';
 import { Button } from '../common/Button.tsx';
 import { Clock, Mic, Square, Loader2 } from 'lucide-react';
@@ -15,6 +15,7 @@ interface Props {
 export function SpeakingSituation({ item, onSubmit, disabled }: Props) {
   const [phase, setPhase] = useState<'thinking' | 'speaking' | 'submitting'>('thinking');
   const [thinkSeconds, setThinkSeconds] = useState(10);
+  const thinkIntervalRef = useRef<number | null>(null);
 
   const { isRecording, audioLevel, startRecording, stopRecording } = useRecorder({
     maxDurationSec: 60,
@@ -29,10 +30,17 @@ export function SpeakingSituation({ item, onSubmit, disabled }: Props) {
     setPhase('thinking');
     setThinkSeconds(10);
 
-    const interval = setInterval(() => {
+    if (thinkIntervalRef.current) {
+      clearInterval(thinkIntervalRef.current);
+    }
+
+    thinkIntervalRef.current = window.setInterval(() => {
       setThinkSeconds((prev) => {
         if (prev <= 1) {
-          clearInterval(interval);
+          if (thinkIntervalRef.current) {
+            clearInterval(thinkIntervalRef.current);
+            thinkIntervalRef.current = null;
+          }
           setPhase('speaking');
           startRecording();
           return 0;
@@ -41,10 +49,19 @@ export function SpeakingSituation({ item, onSubmit, disabled }: Props) {
       });
     }, 1000);
 
-    return () => clearInterval(interval);
+    return () => {
+      if (thinkIntervalRef.current) {
+        clearInterval(thinkIntervalRef.current);
+        thinkIntervalRef.current = null;
+      }
+    };
   }, [item.id, startRecording]);
 
   const handleSkipThinking = () => {
+    if (thinkIntervalRef.current) {
+      clearInterval(thinkIntervalRef.current);
+      thinkIntervalRef.current = null;
+    }
     setPhase('speaking');
     setThinkSeconds(0);
     startRecording();
@@ -56,6 +73,8 @@ export function SpeakingSituation({ item, onSubmit, disabled }: Props) {
     const result = await stopRecording();
     if (result) {
       onSubmit(result.blob, result.durationMs);
+    } else {
+      onSubmit(new Blob([], { type: 'audio/webm' }), 0);
     }
   };
 

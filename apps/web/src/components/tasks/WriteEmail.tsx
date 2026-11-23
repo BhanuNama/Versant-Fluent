@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import type { PublicItem } from '@fluentpath/shared';
 import { Button } from '../common/Button.tsx';
 import { Mail, CheckCircle2, Circle, AlertCircle, ArrowRight } from 'lucide-react';
@@ -13,6 +13,11 @@ interface Props {
 export function WriteEmail({ item, onSubmit, disabled }: Props) {
   const [text, setText] = useState('');
   const pasteInfoRef = useRef({ pasted: false, pasteChars: 0 });
+
+  useEffect(() => {
+    setText('');
+    pasteInfoRef.current = { pasted: false, pasteChars: 0 };
+  }, [item.id]);
 
   const wordCount = text.trim().split(/\s+/).filter(Boolean).length;
   const minWords = item.minWords || 100;
@@ -102,7 +107,7 @@ export function WriteEmail({ item, onSubmit, disabled }: Props) {
             onPaste={handlePaste}
             rows={14}
             disabled={disabled}
-            placeholder={`Dear ${item.recipient.split(',')[0] || 'Manager'},\n\nI am writing to...`}
+            placeholder={`Dear ${(item.recipient || 'Manager').split(',')[0] || 'Manager'},\n\nI am writing to...`}
             className="w-full flex-1 p-4 text-base font-normal rounded-2xl border border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800/80 focus:bg-white dark:focus:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none transition-all placeholder:text-zinc-400 leading-relaxed font-sans"
           />
 

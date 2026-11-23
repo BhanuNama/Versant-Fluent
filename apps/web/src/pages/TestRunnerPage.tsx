@@ -55,34 +55,41 @@ export function TestRunnerPage() {
   const currentItem = session?.items ? session.items[currentItemIndex] : undefined;
   const limitSec = currentItem ? itemLimitSec(currentItem.part) : 25;
 
-  // Dedicated, stable item countdown timer
+  // Dedicated, stable item countdown timer keyed per (part, itemId) to prevent cascading auto-advances
   const [secondsRemaining, setSecondsRemaining] = useState<number>(limitSec);
+  const [timerExpiredKey, setTimerExpiredKey] = useState<string | null>(null);
   const timerIntervalRef = useRef<number | null>(null);
 
   // Initialize and reset timer whenever current item changes or entering in_item
   useEffect(() => {
-    if (machineState !== 'in_item' || !currentItem || !session) return;
+    if (machineState !== 'in_item' || !currentItem || !session) {
+      setTimerExpiredKey(null);
+      return;
+    }
 
-    // Reset countdown for this item
+    const timerKey = `${currentPart}:${currentItem.id}`;
     const totalSec = itemLimitSec(currentItem.part);
+    let remaining = totalSec;
     setSecondsRemaining(totalSec);
+    setTimerExpiredKey(null);
 
     // Notify server of timer start (without resetting local state)
     api.startItemTimer(session.sessionId, { itemId: currentItem.id }).catch(() => {});
 
-    // Clear any previous timer
     if (timerIntervalRef.current) {
       clearInterval(timerIntervalRef.current);
     }
 
     timerIntervalRef.current = window.setInterval(() => {
-      setSecondsRemaining((prev) => {
-        if (prev <= 1) {
-          if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
-          return 0;
+      remaining -= 1;
+      setSecondsRemaining(Math.max(0, remaining));
+      if (remaining <= 0) {
+        if (timerIntervalRef.current) {
+          clearInterval(timerIntervalRef.current);
+          timerIntervalRef.current = null;
         }
-        return prev - 1;
-      });
+        setTimerExpiredKey(timerKey);
+      }
     }, 1000);
 
     return () => {
@@ -91,7 +98,7 @@ export function TestRunnerPage() {
         timerIntervalRef.current = null;
       }
     };
-  }, [machineState, currentItem?.id, session?.sessionId]);
+  }, [machineState, currentPart, currentItem?.id, session?.sessionId]);
 
   const advanceToNext = useCallback(async () => {
     stopAllSpeech();
@@ -123,12 +130,18 @@ export function TestRunnerPage() {
     }
   }, [session, submitting, advanceToNext]);
 
-  // Auto-advance when countdown reaches 0
+  // Auto-advance ONLY when the active item's own timer expires
   useEffect(() => {
-    if (machineState === 'in_item' && secondsRemaining === 0 && !submitting) {
+    if (
+      machineState === 'in_item' &&
+      currentItem &&
+      timerExpiredKey === `${currentPart}:${currentItem.id}` &&
+      !submitting
+    ) {
+      setTimerExpiredKey(null);
       handleNextItem();
     }
-  }, [secondsRemaining, machineState, submitting, handleNextItem]);
+  }, [machineState, currentPart, currentItem?.id, timerExpiredKey, submitting, handleNextItem]);
 
   // Submit Text Answer
   const handleTextSubmit = async (data: {

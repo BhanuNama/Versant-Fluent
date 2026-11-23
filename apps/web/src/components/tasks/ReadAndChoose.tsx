@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { PublicItem } from '@fluentpath/shared';
 import { Button } from '../common/Button.tsx';
 import { ArrowRight, BookOpen } from 'lucide-react';
@@ -14,6 +14,10 @@ export function ReadAndChoose({ item, onSubmit, disabled }: Props) {
   const [selected, setSelected] = useState<number[]>(
     new Array(item.questions.length).fill(-1)
   );
+
+  useEffect(() => {
+    setSelected(new Array(item.questions.length).fill(-1));
+  }, [item.id, item.questions.length]);
 
   const handleSelect = (qIdx: number, optionIdx: number) => {
     if (disabled) return;

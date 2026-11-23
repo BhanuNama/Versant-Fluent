@@ -30,6 +30,11 @@ export function useRecorder({
   const startTimeRef = useRef<number>(0);
   const timerIntervalRef = useRef<number | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
+  const maxDurationRef = useRef(maxDurationSec);
+  maxDurationRef.current = maxDurationSec;
+  const onAutoStopRef = useRef(onAutoStop);
+  onAutoStopRef.current = onAutoStop;
+  const isManualStopRef = useRef(false);
 
   const requestPermission = useCallback(async (): Promise<boolean> => {
     try {
@@ -95,6 +100,7 @@ export function useRecorder({
       };
 
       mediaRecorderRef.current = recorder;
+      isManualStopRef.current = false;
       recorder.start(250);
       startTimeRef.current = Date.now();
       setIsRecording(true);
@@ -103,17 +109,17 @@ export function useRecorder({
       timerIntervalRef.current = window.setInterval(() => {
         const sec = Math.floor((Date.now() - startTimeRef.current) / 1000);
         setElapsedSec(sec);
-        if (sec >= maxDurationSec) {
-          stopRecording();
+        if (sec >= maxDurationRef.current) {
+          stopRecordingInternal(true);
         }
       }, 250);
     } catch (err) {
       setPermission('denied');
       console.error('[recorder] failed to start recording:', err);
     }
-  }, [maxDurationSec]);
+  }, []);
 
-  const stopRecording = useCallback((): Promise<{ blob: Blob; durationMs: number } | null> => {
+  const stopRecordingInternal = useCallback((isAuto: boolean): Promise<{ blob: Blob; durationMs: number } | null> => {
     return new Promise((resolve) => {
       if (timerIntervalRef.current) {
         clearInterval(timerIntervalRef.current);
@@ -132,12 +138,18 @@ export function useRecorder({
         return;
       }
 
+      if (!isAuto) {
+        isManualStopRef.current = true;
+      }
+
       recorder.onstop = () => {
         const durationMs = Date.now() - startTimeRef.current;
         const mimeType = getSupportedMimeType();
         const blob = new Blob(audioChunksRef.current, { type: mimeType });
         setIsRecording(false);
-        if (onAutoStop) onAutoStop(blob, durationMs);
+        if (isAuto && !isManualStopRef.current && onAutoStopRef.current) {
+          onAutoStopRef.current(blob, durationMs);
+        }
         resolve({ blob, durationMs });
       };
 
@@ -155,7 +167,11 @@ export function useRecorder({
         audioContextRef.current = null;
       }
     });
-  }, [onAutoStop]);
+  }, []);
+
+  const stopRecording = useCallback(() => {
+    return stopRecordingInternal(false);
+  }, [stopRecordingInternal]);
 
   useEffect(() => {
     return () => {

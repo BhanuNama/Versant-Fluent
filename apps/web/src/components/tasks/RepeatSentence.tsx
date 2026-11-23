@@ -78,6 +78,8 @@ export function RepeatSentence({ sessionId, item, onSubmit, disabled }: Props) {
     const result = await stopRecording();
     if (result) {
       onSubmit(result.blob, result.durationMs);
+    } else {
+      onSubmit(new Blob([], { type: 'audio/webm' }), 0);
     }
   };
 

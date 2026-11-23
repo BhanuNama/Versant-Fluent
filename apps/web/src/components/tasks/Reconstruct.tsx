@@ -16,6 +16,7 @@ export function Reconstruct({ item, onSubmit, disabled }: Props) {
   const [text, setText] = useState('');
   const pasteInfoRef = useRef({ pasted: false, pasteChars: 0 });
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const readIntervalRef = useRef<number | null>(null);
 
   // 30s Reading phase countdown
   useEffect(() => {
@@ -24,10 +25,17 @@ export function Reconstruct({ item, onSubmit, disabled }: Props) {
     setText('');
     pasteInfoRef.current = { pasted: false, pasteChars: 0 };
 
-    const interval = setInterval(() => {
+    if (readIntervalRef.current) {
+      clearInterval(readIntervalRef.current);
+    }
+
+    readIntervalRef.current = window.setInterval(() => {
       setReadSecondsLeft((prev) => {
         if (prev <= 1) {
-          clearInterval(interval);
+          if (readIntervalRef.current) {
+            clearInterval(readIntervalRef.current);
+            readIntervalRef.current = null;
+          }
           setPhase('writing');
           return 0;
         }
@@ -35,7 +43,12 @@ export function Reconstruct({ item, onSubmit, disabled }: Props) {
       });
     }, 1000);
 
-    return () => clearInterval(interval);
+    return () => {
+      if (readIntervalRef.current) {
+        clearInterval(readIntervalRef.current);
+        readIntervalRef.current = null;
+      }
+    };
   }, [item.id]);
 
   useEffect(() => {
@@ -51,6 +64,10 @@ export function Reconstruct({ item, onSubmit, disabled }: Props) {
   };
 
   const handleSkipReading = () => {
+    if (readIntervalRef.current) {
+      clearInterval(readIntervalRef.current);
+      readIntervalRef.current = null;
+    }
     setPhase('writing');
     setReadSecondsLeft(0);
   };
