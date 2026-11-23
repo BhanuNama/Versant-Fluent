@@ -1,0 +1,88 @@
+[
+  {
+    "id": "d_001", "part": "D", "gse": 58, "difficulty": 3, "tags": ["workplace"],
+    "content": {
+      "task": "Your company plans to let employees work from home on Fridays. Write an email to your manager, Ms. Rao, suggesting three points the policy should cover. Give a supporting idea for each point.",
+      "recipient": "Ms. Rao, your manager",
+      "points": ["Working hours", "Communication tools", "Performance tracking"],
+      "minWords": 100
+    },
+    "answerKey": {
+      "themes": [
+        { "name": "working hours", "keywords": ["hours", "time", "schedule", "available", "availability", "core", "start", "finish", "online"] },
+        { "name": "communication tools", "keywords": ["communication", "tools", "teams", "slack", "chat", "video", "call", "email", "zoom", "meet", "messaging"] },
+        { "name": "performance tracking", "keywords": ["performance", "track", "tracking", "goals", "targets", "progress", "report", "deliverables", "measure", "results", "kpi"] }
+      ]
+    },
+    "rubric": { "register": "professional email to a manager" },
+    "modelAnswer": "Dear Ms. Rao,\n\nThank you for sharing the plan to allow work from home on Fridays. I think it is a great idea, and I would like to suggest three points the policy could cover.\n\nFirst, working hours. It would help to set core hours, for example 10 a.m. to 4 p.m., when everyone is available, so that clients and colleagues can always reach us.\n\nSecond, communication tools. We should agree on one chat tool and one video tool for the whole team, so that messages do not get lost across different apps.\n\nFinally, performance tracking. Instead of tracking hours online, we could agree on weekly goals and review progress in a short Monday meeting.\n\nI would be happy to help draft the policy.\n\nBest regards,\nAnil"
+  },
+  {
+    "id": "d_002", "part": "D", "gse": 54, "difficulty": 3, "tags": ["workplace"],
+    "content": {
+      "task": "Your team wants to organise a team-building day next month. Write an email to Daniel from the HR department explaining your plan. Include possible dates, activity ideas, and the budget you need. Give a reason or detail for each point.",
+      "recipient": "Daniel, HR department",
+      "points": ["Possible dates", "Activity ideas", "Budget needed"],
+      "minWords": 100
+    },
+    "answerKey": {
+      "themes": [
+        { "name": "dates", "keywords": ["date", "dates", "day", "friday", "monday", "week", "month", "next", "saturday", "calendar"] },
+        { "name": "activities", "keywords": ["activity", "activities", "game", "games", "workshop", "lunch", "trip", "hike", "cooking", "sports", "quiz"] },
+        { "name": "budget", "keywords": ["budget", "cost", "costs", "price", "per person", "rupees", "dollars", "money", "spend", "amount"] }
+      ]
+    },
+    "modelAnswer": "Hi Daniel,\n\nI hope you are well. Our team would like to organise a team-building day next month, and I wanted to share our plan.\n\nFor dates, we suggest Friday the 12th or Friday the 19th, because there are no major client deadlines in those weeks.\n\nFor activities, we are thinking of a cooking workshop in the morning, followed by lunch and an outdoor quiz. These activities encourage people from different roles to work together.\n\nWe estimate a budget of about 2,000 rupees per person, which covers the workshop, lunch and transport for twelve people.\n\nCould you let me know if this is possible? I am happy to send a detailed cost sheet.\n\nThanks,\nSara"
+  },
+  {
+    "id": "d_003", "part": "D", "gse": 64, "difficulty": 4, "tags": ["customer service"],
+    "content": {
+      "task": "A supplier delivered an order of office laptops one week late, and two of the laptops had damaged screens. Write an email to the supplier's account manager, Mr. Chen. Explain what went wrong, describe the impact on your company, and say what you would like the supplier to do.",
+      "recipient": "Mr. Chen, supplier account manager",
+      "points": ["What went wrong", "Impact on your company", "What you want the supplier to do"],
+      "minWords": 100
+    },
+    "answerKey": {
+      "themes": [
+        { "name": "problem", "keywords": ["late", "delay", "delayed", "week", "damaged", "broken", "screen", "screens", "cracked"] },
+        { "name": "impact", "keywords": ["impact", "new", "employees", "staff", "could not", "unable", "wait", "lost", "productivity", "delayed", "start", "affected"] },
+        { "name": "request", "keywords": ["replace", "replacement", "refund", "discount", "compensation", "request", "would like", "please", "ensure", "future"] }
+      ]
+    },
+    "modelAnswer": "Dear Mr. Chen,\n\nI am writing regarding purchase order 4821 for ten office laptops delivered to our headquarters yesterday.\n\nFirst, the consignment arrived an entire week past the agreed delivery schedule. Furthermore, upon unboxing the equipment, our IT team discovered that two units had severely cracked display screens.\n\nThis delay and product damage has disrupted our onboarding schedule. Two newly recruited analysts are currently unable to access essential client systems, delaying project deliverables.\n\nWe urgently request replacement units delivered via express courier by this Thursday. Additionally, we expect a credit note covering courier charges and compensation for the disruption.\n\nSincerely,\nKavita Patel"
+  },
+  {
+    "id": "d_004", "part": "D", "gse": 62, "difficulty": 4, "tags": ["workplace", "client relations"],
+    "content": {
+      "task": "You are leading a project that will be delayed by two weeks due to unexpected technical challenges. Write an email to your client, Mr. Robinson. Explain the reason for the delay, describe the revised timeline, and reassure him about quality control.",
+      "recipient": "Mr. Robinson, client",
+      "points": ["Reason for delay", "Revised timeline", "Quality assurance measures"],
+      "minWords": 100
+    },
+    "answerKey": {
+      "themes": [
+        { "name": "reason", "keywords": ["reason", "technical", "challenges", "unexpected", "integration", "software", "bug", "issue"] },
+        { "name": "timeline", "keywords": ["timeline", "revised", "date", "weeks", "deliver", "schedule", "completion", "delay"] },
+        { "name": "quality", "keywords": ["quality", "testing", "assurance", "standards", "robust", "secure", "thorough", "review"] }
+      ]
+    },
+    "modelAnswer": "Dear Mr. Robinson,\n\nI am writing to provide an update on the progress of the customer portal development project.\n\nDuring our recent security audit, our engineering team identified unexpected database integration complexities that require thorough remediation before release. To ensure complete system stability, we have decided to extend the timeline by two weeks.\n\nOur revised final handover date is now scheduled for Friday, October 24th. All core features will be fully functional, followed by user acceptance testing next week.\n\nPlease rest assured that this additional time guarantees the high security and reliability standards your organisation expects. I will hold weekly milestone reviews with your technical lead.\n\nKind regards,\nArjun Mehta"
+  },
+  {
+    "id": "d_005", "part": "D", "gse": 56, "difficulty": 3, "tags": ["internal communication"],
+    "content": {
+      "task": "You are organizing a farewell party for a senior colleague who is retiring next month. Write an email to your department colleagues asking for gift contributions, suggesting celebration ideas, and requesting RSVPs by Friday.",
+      "recipient": "Department colleagues",
+      "points": ["Retirement announcement and gift collection", "Celebration arrangements", "RSVP deadline"],
+      "minWords": 100
+    },
+    "answerKey": {
+      "themes": [
+        { "name": "gift", "keywords": ["gift", "present", "contribution", "retire", "retiring", "card", "fund"] },
+        { "name": "celebration", "keywords": ["party", "celebration", "lunch", "cake", "gathering", "event", "hall"] },
+        { "name": "rsvp", "keywords": ["rsvp", "deadline", "friday", "confirm", "attendance", "reply"] }
+      ]
+    },
+    "modelAnswer": "Dear Team,\n\nAs many of you know, our senior colleague Arthur Pendelton is retiring at the end of this month after twenty-five years of dedicated service to our department.\n\nTo honor his invaluable contributions, we are collecting voluntary contributions towards a farewell gift and a commemorative photo album. If you would like to participate, please transfer your contribution to Sarah in accounting by Wednesday.\n\nWe are hosting a celebration lunch in the main lounge on Thursday, May 28th at 12:30 PM with food and cake. Speeches from colleagues will follow.\n\nPlease reply with your RSVP by this Friday so that we can confirm catering numbers.\n\nWarm regards,\nChloe"
+  }
+]

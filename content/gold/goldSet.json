@@ -1,0 +1,92 @@
+[
+  {
+    "id": "gold_b_01",
+    "part": "B",
+    "itemRef": "b_003",
+    "prompt": "Priya joined the company in March and was given a small project. She finished it two weeks early, so her manager asked her to lead a bigger team.",
+    "response": "Priya started working at the firm in March. She was assigned a small task which she completed two weeks ahead of schedule. As a result, her supervisor requested that she head a larger group.",
+    "humanScore": 1.0,
+    "humanGse": 72
+  },
+  {
+    "id": "gold_b_02",
+    "part": "B",
+    "itemRef": "b_003",
+    "prompt": "Priya joined the company in March and was given a small project. She finished it two weeks early, so her manager asked her to lead a bigger team.",
+    "response": "Priya join company in March. She get small project and finish early. Then manager tell her to lead team.",
+    "humanScore": 0.6,
+    "humanGse": 48
+  },
+  {
+    "id": "gold_b_03",
+    "part": "B",
+    "itemRef": "b_003",
+    "prompt": "Priya joined the company in March and was given a small project. She finished it two weeks early, so her manager asked her to lead a bigger team.",
+    "response": "She finished early and was very happy.",
+    "humanScore": 0.2,
+    "humanGse": 28
+  },
+  {
+    "id": "gold_d_01",
+    "part": "D",
+    "itemRef": "d_001",
+    "prompt": "Suggest three points for work from home policy on Fridays: hours, tools, tracking.",
+    "response": "Dear Ms. Rao,\n\nI am writing to share recommendations for the upcoming Friday work-from-home initiative. Introducing this policy will boost morale while maintaining high productivity.\n\nFirst, regarding working hours, I recommend standard core hours between 9:30 AM and 4:30 PM. This ensures that clients receive prompt support while offering employees needed flexibility.\n\nSecond, regarding communication tools, establishing Slack for instant team messaging and Zoom for video conferences will ensure clear and prompt coordination across departments.\n\nLastly, concerning performance tracking, we should implement weekly deliverables and objective KPI milestones rather than continuous online monitoring, encouraging ownership.\n\nThank you for considering these thoughts.\n\nBest regards,\nRahul Verma",
+    "humanScore": 0.95,
+    "humanGse": 75
+  },
+  {
+    "id": "gold_d_02",
+    "part": "D",
+    "itemRef": "d_001",
+    "prompt": "Suggest three points for work from home policy on Fridays: hours, tools, tracking.",
+    "response": "Dear Ms Rao, I want to say about work from home Friday. We need good hours like 10 to 5 so everyone can answer call. We also use Microsoft teams to talk together. For tracking, manager can see the task every week. Hope this is good. Thanks, Amit",
+    "humanScore": 0.55,
+    "humanGse": 49
+  },
+  {
+    "id": "gold_d_03",
+    "part": "D",
+    "itemRef": "d_001",
+    "prompt": "Suggest three points for work from home policy on Fridays: hours, tools, tracking.",
+    "response": "I like work from home very much. It is quiet.",
+    "humanScore": 0.1,
+    "humanGse": 24
+  },
+  {
+    "id": "gold_i_01",
+    "part": "I",
+    "itemRef": "i_001",
+    "prompt": "Stuck in traffic for client meeting. Call manager.",
+    "response": "Hello Priya, this is Aditya calling. I am unfortunately caught in a complete gridlock on the highway due to an overturned truck. I anticipate being approximately twenty-five minutes late for our 2 o'clock client presentation. I have already phoned the client directly to apologise for the delay. Could you please begin with the introductory project overview slides in the shared folder? I will join by audio bridge the moment I pull over safely.",
+    "humanScore": 0.92,
+    "humanGse": 73
+  },
+  {
+    "id": "gold_i_02",
+    "part": "I",
+    "itemRef": "i_001",
+    "prompt": "Stuck in traffic for client meeting. Call manager.",
+    "response": "Hi boss, sorry I am in big traffic today. Very slow car. I reach after twenty minutes. You please talk to client first.",
+    "humanScore": 0.5,
+    "humanGse": 46
+  },
+  {
+    "id": "gold_j_01",
+    "part": "J",
+    "itemRef": "j_002",
+    "prompt": "Arjun runs a small electronics shop. Customer returned faulty phone. Offerer replacement. Returned with a friend.",
+    "response": "Arjun operates an electronics retail shop. One day a customer arrived with a smartphone that kept turning off unexpectedly. Arjun tested the device, apologised sincerely, and promptly provided a replacement model. Pleased with the helpful service, the customer returned a week later with a friend who bought a new laptop.",
+    "humanScore": 0.95,
+    "humanGse": 74
+  },
+  {
+    "id": "gold_j_02",
+    "part": "J",
+    "itemRef": "j_002",
+    "prompt": "Arjun runs a small electronics shop. Customer returned faulty phone. Offerer replacement. Returned with a friend.",
+    "response": "A man named Arjun has shop. Customer have bad phone. He gave new one. Customer happy and came back with friend.",
+    "humanScore": 0.55,
+    "humanGse": 48
+  }
+]

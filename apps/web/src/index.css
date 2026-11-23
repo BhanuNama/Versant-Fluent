@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #FAFAF9;
+  --color-surface: #FFFFFF;
+  --color-border: #E7E5E4;
+  --color-text: #1C1917;
+  --color-muted: #78716C;
+}
+
+.dark {
+  --color-bg: #0F0F10;
+  --color-surface: #18181B;
+  --color-border: #27272A;
+  --color-text: #FAFAFA;
+  --color-muted: #A1A1AA;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+/* Ambient glow gradient background matching design inspiration */
+.ambient-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(216, 180, 254, 0.22) 0%, rgba(237, 233, 254, 0.12) 35%, rgba(250, 250, 249, 0) 70%);
+}
+
+.dark .ambient-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.15) 0%, rgba(109, 40, 217, 0.08) 35%, rgba(15, 15, 16, 0) 70%);
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D6D3D1;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #3F3F46;
+}

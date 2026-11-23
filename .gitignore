@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+.env.local
+data/
+*.log
+.DS_Store
+.vercel
+coverage/
+content/audio/*.wav
+!content/audio/.gitkeep

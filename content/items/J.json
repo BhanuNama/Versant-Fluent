@@ -1,0 +1,50 @@
+[
+  {
+    "id": "j_001", "part": "J", "gse": 46, "difficulty": 2, "tags": ["daily life"],
+    "content": { "story": "Lena was walking to work when she found a wallet on the pavement. Inside there was an ID card and some money. She took the wallet to the police station near her office. That evening, the owner called to thank her and invited her for coffee." },
+    "answerKey": { "elements": ["Lena was walking to work", "she found a wallet on the pavement", "there was an ID card and money inside", "she took it to the police station", "the owner called her that evening", "the owner thanked her and invited her for coffee"] },
+    "modelAnswer": "On her way to work, Lena found a wallet on the street with an ID card and some money in it. She took it to a police station near her office. In the evening the owner phoned her to say thank you and invited her for a coffee."
+  },
+  {
+    "id": "j_002", "part": "J", "gse": 52, "difficulty": 3, "tags": ["customer service"],
+    "content": { "story": "Arjun runs a small electronics shop. One morning, a customer came in to return a phone that kept switching off. Arjun tested it, apologised, and offered her a brand-new replacement straight away. The customer left happy. A week later, she came back with a friend who wanted to buy a laptop." },
+    "answerKey": { "elements": ["Arjun owns a small electronics shop", "a customer returned a phone", "the phone kept switching off", "Arjun tested it and apologised", "he offered a new replacement immediately", "the customer left happy", "a week later she came back", "she brought a friend who wanted to buy a laptop"] },
+    "modelAnswer": "Arjun has an electronics shop. A customer brought back a phone that kept turning off. He checked it, said sorry, and gave her a new phone right away, so she left happy. A week later she returned with a friend who wanted a laptop."
+  },
+  {
+    "id": "j_003", "part": "J", "gse": 58, "difficulty": 3, "tags": ["daily life", "workplace"],
+    "content": { "story": "A small bakery wanted more customers on weekday mornings. The owner, Sam, started offering a free coffee with every pastry bought before nine o'clock. At first only a few people noticed, but office workers soon began telling their colleagues. Within a month, there was a queue outside every morning, and Sam had to hire an extra assistant." },
+    "answerKey": { "elements": ["a bakery wanted more customers on weekday mornings", "the owner was called Sam", "he offered free coffee with a pastry before nine", "at first few people noticed", "office workers told their colleagues", "within a month there was a queue every morning", "Sam hired an extra assistant"] },
+    "modelAnswer": "Sam owns a bakery that needed more customers in the mornings. He offered a free coffee with any pastry before nine. Only a few people noticed at first, but office workers told their colleagues, and after a month there was a queue every morning, so Sam hired another assistant."
+  },
+  {
+    "id": "j_004", "part": "J", "gse": 66, "difficulty": 4, "tags": ["workplace", "technology"],
+    "content": { "story": "During an important video call with investors, Maria's internet connection suddenly failed. Instead of panicking, she rejoined the call from her phone and asked a colleague to share the slides. The investors were impressed by how calmly she handled the problem, and two weeks later the company received the funding it needed." },
+    "answerKey": { "elements": ["Maria was on an important video call with investors", "her internet connection failed", "she did not panic", "she rejoined from her phone", "she asked a colleague to share the slides", "the investors were impressed by her calm", "two weeks later the company got the funding"] },
+    "modelAnswer": "Maria was presenting to investors on a video call when her internet went down. She stayed calm, joined again from her phone and asked a colleague to share the slides. The investors liked how calmly she dealt with it, and two weeks later the company got its funding."
+  },
+  {
+    "id": "j_005", "part": "J", "gse": 50, "difficulty": 2, "tags": ["travel", "daily life"],
+    "content": { "story": "Carlos arrived at the airport two hours early for his flight home. While waiting at the gate, he heard an announcement that the flight was overbooked. The airline offered a travel voucher and free dinner to anyone willing to take a flight three hours later. Carlos accepted the offer, enjoyed a relaxing meal, and used the voucher to visit his brother next month." },
+    "answerKey": { "elements": ["Carlos arrived early at the airport", "flight was overbooked", "airline offered travel voucher and free dinner for taking later flight", "Carlos volunteered", "enjoyed meal and used voucher to visit his brother"] },
+    "modelAnswer": "Carlos was waiting at the airport when his flight was overbooked. The airline promised a free meal and a flight voucher for passengers willing to take a flight three hours later. Carlos agreed, had a good dinner, and later used the voucher to visit family."
+  },
+  {
+    "id": "j_006", "part": "J", "gse": 60, "difficulty": 3, "tags": ["office", "innovation"],
+    "content": { "story": "An engineering office was wasting thousands of paper cups each month. A junior engineer named Rachel suggested buying every employee a reusable metal thermos with their name engraved on it. The management approved her idea. Within six months, office waste decreased significantly, and the company saved over three thousand dollars." },
+    "answerKey": { "elements": ["office was wasting thousands of paper cups", "Rachel suggested reusable engraved thermoses", "management approved", "waste decreased and office saved three thousand dollars"] },
+    "modelAnswer": "To reduce paper cup waste, an engineer named Rachel proposed giving every worker an engraved metal thermos. Management agreed, and within six months waste plummeted and the firm saved three thousand dollars."
+  },
+  {
+    "id": "j_007", "part": "J", "gse": 64, "difficulty": 4, "tags": ["hospitality", "service"],
+    "content": { "story": "A family checked into a boutique hotel late at night after their luggage was lost by the airline. The front desk supervisor, Leo, noticed their distress and arranged complimentary toiletries, fresh clothing from the hotel shop, and warm soup from room service. Touched by his kindness, the family left a five-star review that attracted dozens of new guests." },
+    "answerKey": { "elements": ["family arrived late after losing luggage", "Leo provided free toiletries, clothes, and warm soup", "family was touched", "their five-star review brought many new bookings"] },
+    "modelAnswer": "When a family lost their bags on a late flight, hotel supervisor Leo gave them complimentary clothes, toiletries, and hot soup. The appreciative family posted a glowing review that generated many new bookings."
+  },
+  {
+    "id": "j_008", "part": "J", "gse": 68, "difficulty": 5, "tags": ["business", "crisis"],
+    "content": { "story": "A boutique software firm discovered a critical bug in their accounting tool hours before tax filing deadline. Instead of concealing the glitch, the CEO published an immediate advisory, offered automated data recovery, and extended telephone support through the night. Clients praised the transparency, and the firm actually signed twelve new enterprise accounts that quarter." },
+    "answerKey": { "elements": ["accounting software suffered a critical bug before tax deadline", "CEO was transparent and provided all-night support and recovery", "clients praised honest communication", "firm signed twelve new enterprise accounts"] },
+    "modelAnswer": "Right before tax deadline, a software company found a severe bug. The CEO chose total honesty, providing overnight assistance and data recovery. Rather than losing customers, the firm's transparency earned twelve new enterprise clients."
+  }
+]

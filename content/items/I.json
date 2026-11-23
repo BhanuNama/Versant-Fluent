@@ -1,0 +1,58 @@
+[
+  {
+    "id": "i_001", "part": "I", "gse": 55, "difficulty": 3, "tags": ["workplace", "travel"],
+    "content": { "situation": "You are stuck in heavy traffic and will be late for an important client meeting. Call your manager and explain what you will do." },
+    "answerKey": {},
+    "rubric": { "expectations": ["tells the manager about the delay and the reason", "gives an estimated arrival time", "proposes a plan, for example asking a colleague to start or informing the client", "polite, professional tone"] },
+    "modelAnswer": "Hi Neha, it's Arun. I'm really sorry, but I'm stuck in heavy traffic on the ring road because of an accident. I think I'll be about twenty minutes late for the meeting with the client. I've already sent them a short message to apologise. Could you or Ravi please start the meeting and go through the first part of the presentation? The slides are in the shared folder. I'll join by phone if the traffic doesn't move soon, and I'll be there as quickly as I can. Thanks for understanding."
+  },
+  {
+    "id": "i_002", "part": "I", "gse": 50, "difficulty": 2, "tags": ["workplace"],
+    "content": { "situation": "A new colleague has just joined your team. They ask you for advice about getting to know everyone in their first week. Give them some suggestions." },
+    "answerKey": {},
+    "rubric": { "expectations": ["welcomes the colleague", "gives at least two practical suggestions", "explains why the suggestions help", "friendly tone"] },
+    "modelAnswer": "Welcome to the team! It's great to have you here. My first suggestion is to join us for lunch. Most of us eat together around one o'clock, and it's the easiest way to chat with people outside of work tasks. Second, ask your manager to set up short one-to-one meetings with each person on the team. Just fifteen minutes is enough to learn what everyone does. And finally, don't be afraid to ask questions in the team chat. Everyone is happy to help, and it shows you're interested."
+  },
+  {
+    "id": "i_003", "part": "I", "gse": 62, "difficulty": 4, "tags": ["customer service"],
+    "content": { "situation": "A customer calls to complain that a coffee machine they ordered arrived damaged. Respond to the customer and explain how you will solve the problem." },
+    "answerKey": {},
+    "rubric": { "expectations": ["apologises and shows empathy", "asks for or confirms order details", "offers a clear solution such as replacement or refund", "gives a timeline and next steps"] },
+    "modelAnswer": "I'm very sorry to hear that your coffee machine arrived damaged. That must be really frustrating. Could you please give me your order number so I can check the details? Thank you. I can arrange a replacement for you right away, and it should arrive within three working days. Our courier will collect the damaged machine when they deliver the new one, so you don't need to do anything. If you would prefer a full refund instead, I can process that today. I'll also email you a confirmation in the next few minutes."
+  },
+  {
+    "id": "i_004", "part": "I", "gse": 58, "difficulty": 3, "tags": ["negotiation", "workplace"],
+    "content": { "situation": "Your manager asks you to take on an urgent project, but your current workload is already full. Speak to your manager and propose a reasonable compromise." },
+    "answerKey": {},
+    "rubric": { "expectations": ["acknowledges the importance of the new project", "clearly explains existing commitments", "proposes prioritizing or reassigning specific tasks", "maintains a collaborative professional attitude"] },
+    "modelAnswer": "Hi Marcus. I completely understand that the client proposal is critical and needs immediate attention. Currently, I am finishing the quarterly compliance report due on Thursday, which requires my full focus. To take on this urgent project effectively without compromising quality, could we delegate the data verification step of the report to Liam, or extend the report deadline until Monday? That way, I can dedicate my full afternoon to leading the new proposal."
+  },
+  {
+    "id": "i_005", "part": "I", "gse": 65, "difficulty": 4, "tags": ["conflict resolution"],
+    "content": { "situation": "Two members of your team disagree on how to design a new website feature, causing project delays. As team lead, call a brief meeting to help them reach an agreement." },
+    "answerKey": {},
+    "rubric": { "expectations": ["states the objective of resolving the impasse", "validates both perspectives constructively", "suggests objective criteria such as user testing or MVP approach", "sets a clear decision deadline"] },
+    "modelAnswer": "Hello Maya and Alex. Thanks for taking the time to speak today. I know both of you care deeply about delivering the best user experience for this feature. Maya wants a minimalist layout to improve loading speeds, while Alex suggests including expanded product filters for power users. Since both points are valid, I propose we launch Maya's streamlined layout as an initial prototype this week, while conducting A/B user testing on Alex's filter design with twenty beta users. Let's review the data next Tuesday and make a final call together."
+  },
+  {
+    "id": "i_006", "part": "I", "gse": 52, "difficulty": 2, "tags": ["daily life", "office"],
+    "content": { "situation": "You accidentally spilled coffee near the office printer, damaging a stack of fresh paper. Speak to the office manager to apologize and explain what you did to clean up." },
+    "answerKey": {},
+    "rubric": { "expectations": ["takes ownership and apologizes", "explains that safety/equipment is secured", "explains cleanup actions taken", "offers to replace the paper"] },
+    "modelAnswer": "Hi Sandra, I wanted to quickly let you know that I had an accident with my coffee mug near the print station this morning. Fortunately, none of the liquid touched the printer electronics, but it did soak a ream of printing paper on the lower shelf. I have thoroughly mopped the floor to prevent any slipping hazard and wiped down the surrounding table. I have also ordered two replacement paper reams from the supply closet. I am very sorry for the inconvenience."
+  },
+  {
+    "id": "i_007", "part": "I", "gse": 68, "difficulty": 5, "tags": ["leadership", "client management"],
+    "content": { "situation": "A prospective enterprise client is concerned about your company's data privacy compliance. Explain to their CTO how your company safeguards sensitive customer data." },
+    "answerKey": {},
+    "rubric": { "expectations": ["addresses privacy standards with confidence", "mentions encryption and industry certifications", "highlights third-party audits and access control", "offers to provide compliance documentation"] },
+    "modelAnswer": "Thank you for raising that vital point, Dr. Vance. Data privacy and security are foundational to our entire infrastructure. All customer data is encrypted both in transit using TLS 1.3 and at rest with AES-256 encryption. We comply fully with GDPR and SOC-2 Type II standards, and our architecture undergoes bi-annual independent penetration testing. Furthermore, role-based access control ensures only authorized personnel ever access sensitive records. I would be delighted to share our comprehensive security whitepaper and latest audit report with your security team today."
+  },
+  {
+    "id": "i_008", "part": "I", "gse": 60, "difficulty": 3, "tags": ["customer service", "upselling"],
+    "content": { "situation": "A customer is thinking about canceling their subscription because they rarely use the advanced features. Speak to them and offer a solution tailored to their needs." },
+    "answerKey": {},
+    "rubric": { "expectations": ["listens and validates customer sentiment", "acknowledges that paying for unused features is frustrating", "proposes switching to a lighter, cost-effective tier", "explains transition steps smoothly"] },
+    "modelAnswer": "Hello Mr. Henderson, I completely understand where you are coming from. Paying for complex enterprise tools you do not actively use does not make financial sense. Rather than losing access completely, what if we switched your account to our Starter tier? It retains all your essential core tools, reports, and cloud storage, but cuts your monthly fee by over fifty percent. Your existing data remains completely intact, and you can switch back whenever you need. Would you like me to set that up for you today?"
+  }
+]

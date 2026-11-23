@@ -1,0 +1,152 @@
+[
+  {
+    "id": "g_001", "part": "G", "gse": 50, "difficulty": 3, "tags": ["workplace", "travel"],
+    "content": {
+      "story": "Ravi missed his train, so he called his team to say he would be late. He took a taxi instead and reached the office just before the presentation.",
+      "questions": [{ "q": "Why did Ravi call his team?" }, { "q": "How did he reach the office?" }, { "q": "When did he arrive?" }]
+    },
+    "answerKey": {
+      "expected": [
+        ["he missed his train", "he would be late", "to say he would be late"],
+        ["by taxi", "he took a taxi"],
+        ["just before the presentation", "before the presentation"]
+      ],
+      "questionGse": [48, 44, 54]
+    }
+  },
+  {
+    "id": "g_002", "part": "G", "gse": 54, "difficulty": 3, "tags": ["workplace", "customer service"],
+    "content": {
+      "story": "Meena ordered new chairs for the office in May. When they arrived, two of them were broken. She called the supplier, who apologised and sent replacements the next day. The supplier also gave her a discount on her next order.",
+      "questions": [{ "q": "What did Meena order?" }, { "q": "What was wrong with the delivery?" }, { "q": "What did the supplier give her besides the replacements?" }]
+    },
+    "answerKey": {
+      "expected": [
+        ["chairs", "new chairs for the office", "office chairs"],
+        ["two chairs were broken", "some of the chairs were broken", "broken chairs"],
+        ["a discount", "a discount on her next order"]
+      ],
+      "questionGse": [40, 52, 60]
+    }
+  },
+  {
+    "id": "g_003", "part": "G", "gse": 62, "difficulty": 4, "tags": ["workplace"],
+    "content": {
+      "story": "The marketing team planned an outdoor product launch for Saturday. On Friday the forecast predicted heavy rain, so they moved the event to a hotel ballroom nearby. Although fewer people came than expected, the online stream reached twice as many viewers as last year.",
+      "questions": [{ "q": "Why did the team move the event?" }, { "q": "Where was the event held?" }, { "q": "How did the online stream perform?" }]
+    },
+    "answerKey": {
+      "expected": [
+        ["heavy rain was forecast", "because of the rain", "because the forecast predicted heavy rain"],
+        ["in a hotel ballroom", "at a nearby hotel"],
+        ["it reached twice as many viewers", "twice as many viewers as last year", "better than last year"]
+      ],
+      "questionGse": [56, 58, 68]
+    }
+  },
+  {
+    "id": "g_004", "part": "G", "gse": 48, "difficulty": 2, "tags": ["technology", "workplace"],
+    "content": {
+      "story": "David needed to print twenty copies of a proposal for an afternoon client meeting. The printer ran out of ink halfway through the job. David asked his colleague Sarah to borrow ink from the second floor, and they finished printing twenty minutes early.",
+      "questions": [{ "q": "What did David need to print?" }, { "q": "What went wrong with the printer?" }, { "q": "Who helped David get more ink?" }]
+    },
+    "answerKey": {
+      "expected": [
+        ["twenty copies of a proposal", "proposals", "twenty copies"],
+        ["it ran out of ink", "no ink", "ran out of toner"],
+        ["Sarah", "his colleague Sarah"]
+      ],
+      "questionGse": [44, 46, 50]
+    }
+  },
+  {
+    "id": "g_005", "part": "G", "gse": 56, "difficulty": 3, "tags": ["customer service"],
+    "content": {
+      "story": "A customer called the bank because her card was blocked after she entered the wrong passcode three times. The agent verified her identity with two security questions and unblocked the account. The customer then successfully completed her online payment.",
+      "questions": [{ "q": "Why was the customer's card blocked?" }, { "q": "How did the agent verify her identity?" }, { "q": "What did the customer do after the account was unblocked?" }]
+    },
+    "answerKey": {
+      "expected": [
+        ["wrong passcode three times", "she entered the wrong pin", "wrong password"],
+        ["with security questions", "two security questions", "by asking security questions"],
+        ["completed her online payment", "paid online", "made her payment"]
+      ],
+      "questionGse": [52, 54, 58]
+    }
+  },
+  {
+    "id": "g_006", "part": "G", "gse": 58, "difficulty": 3, "tags": ["workplace", "recruitment"],
+    "content": {
+      "story": "Elena interviewed five candidates for the junior designer position on Tuesday. Two candidates had strong portfolios, but only one had experience with interactive prototypes. Elena recommended that candidate for a second interview with the director on Friday.",
+      "questions": [{ "q": "How many candidates did Elena interview?" }, { "q": "What special skill set one candidate apart?" }, { "q": "When is the second interview scheduled?" }]
+    },
+    "answerKey": {
+      "expected": [
+        ["five", "five candidates"],
+        ["interactive prototypes", "experience with prototypes", "prototyping"],
+        ["on Friday", "Friday"]
+      ],
+      "questionGse": [46, 58, 52]
+    }
+  },
+  {
+    "id": "g_007", "part": "G", "gse": 64, "difficulty": 4, "tags": ["travel", "workplace"],
+    "content": {
+      "story": "Ken was flying to Singapore for an annual trade conference. His flight was delayed due to severe thunderstorms in Chicago, causing him to miss his connecting flight in Tokyo. The airline booked him onto a flight the following morning and provided a voucher for a nearby airport hotel.",
+      "questions": [{ "q": "Where was Ken travelling to?" }, { "q": "Why was his initial flight delayed?" }, { "q": "What did the airline provide for the overnight stay?" }]
+    },
+    "answerKey": {
+      "expected": [
+        ["Singapore", "to Singapore", "trade conference in Singapore"],
+        ["severe thunderstorms", "bad weather in Chicago", "thunderstorms"],
+        ["a hotel voucher", "a voucher for an airport hotel", "hotel room"]
+      ],
+      "questionGse": [54, 62, 64]
+    }
+  },
+  {
+    "id": "g_008", "part": "G", "gse": 60, "difficulty": 4, "tags": ["workplace", "logistics"],
+    "content": {
+      "story": "The warehouse manager noticed that shipping boxes were running low ahead of the holiday sale. She placed an express order on Wednesday morning and arranged extra temporary staff for Saturday packing. The shipment arrived on Friday afternoon, allowing operations to proceed smoothly.",
+      "questions": [{ "q": "What was running low in the warehouse?" }, { "q": "When did the manager place the express order?" }, { "q": "Why were extra temporary staff arranged?" }]
+    },
+    "answerKey": {
+      "expected": [
+        ["shipping boxes", "boxes", "packing boxes"],
+        ["Wednesday morning", "on Wednesday"],
+        ["for Saturday packing", "to pack orders", "for holiday packing"]
+      ],
+      "questionGse": [52, 54, 62]
+    }
+  },
+  {
+    "id": "g_009", "part": "G", "gse": 66, "difficulty": 5, "tags": ["technology", "business"],
+    "content": {
+      "story": "A software company migrated its customer database to a cloud server over the weekend. A configuration error caused three hours of unexpected downtime on Sunday evening. The engineering team rolled back the latest change, restored access, and sent an incident postmortem to clients on Monday.",
+      "questions": [{ "q": "When did the database migration take place?" }, { "q": "What caused the downtime on Sunday?" }, { "q": "What did the engineering team send to clients on Monday?" }]
+    },
+    "answerKey": {
+      "expected": [
+        ["over the weekend", "on the weekend", "Sunday"],
+        ["a configuration error", "configuration issue", "error in config"],
+        ["an incident postmortem", "a postmortem report", "an incident summary"]
+      ],
+      "questionGse": [54, 64, 68]
+    }
+  },
+  {
+    "id": "g_010", "part": "G", "gse": 52, "difficulty": 3, "tags": ["daily life", "health"],
+    "content": {
+      "story": "Marcus forgot his glasses at his desk before walking to the company cafeteria for lunch. Unable to read the daily specials board clearly, he asked the cashier what soup was being served. He ended up ordering the lentil soup and a fresh fruit salad.",
+      "questions": [{ "q": "Where did Marcus leave his glasses?" }, { "q": "Why did he speak to the cashier?" }, { "q": "What two items did he order for lunch?" }]
+    },
+    "answerKey": {
+      "expected": [
+        ["at his desk", "on his desk", "in his office"],
+        ["to ask about the soup", "he couldn't read the specials board", "to ask what soup was served"],
+        ["lentil soup and fruit salad", "soup and salad", "lentil soup and fresh fruit"]
+      ],
+      "questionGse": [46, 54, 52]
+    }
+  }
+]

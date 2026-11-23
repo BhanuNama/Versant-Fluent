@@ -1,0 +1,29 @@
+{
+  "name": "fluentpath",
+  "private": true,
+  "version": "1.0.0",
+  "description": "FluentPath: English test practice with AI-assisted practice estimates (GSE / CEFR).",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c blue,magenta \"npm run dev -w @fluentpath/api\" \"npm run dev -w @fluentpath/web\"",
+    "dev:api": "npm run dev -w @fluentpath/api",
+    "dev:web": "npm run dev -w @fluentpath/web",
+    "build": "npm run build -w @fluentpath/web",
+    "start": "npm run start -w @fluentpath/api",
+    "seed": "npm run seed -w @fluentpath/api",
+    "test": "npm run test -w @fluentpath/api",
+    "typecheck": "npm run typecheck -w @fluentpath/api && npm run typecheck -w @fluentpath/web",
+    "gold": "npm run gold -w @fluentpath/api",
+    "audio": "node scripts/generate-audio.mjs"
+  },
+  "engines": {
+    "node": ">=20.11"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

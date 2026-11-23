@@ -1,0 +1,20 @@
+[
+  { "id": "e_001", "part": "E", "gse": 36, "difficulty": 1, "tags": ["daily life"], "content": { "text": "The meeting starts at two." }, "answerKey": {} },
+  { "id": "e_002", "part": "E", "gse": 40, "difficulty": 1, "tags": ["daily life"], "content": { "text": "He left his bag in the taxi." }, "answerKey": {} },
+  { "id": "e_003", "part": "E", "gse": 44, "difficulty": 2, "tags": ["workplace"], "content": { "text": "Please print ten copies of the schedule." }, "answerKey": {} },
+  { "id": "e_004", "part": "E", "gse": 48, "difficulty": 2, "tags": ["workplace"], "content": { "text": "The report will be ready tomorrow afternoon." }, "answerKey": {} },
+  { "id": "e_005", "part": "E", "gse": 52, "difficulty": 3, "tags": ["technology"], "content": { "text": "You can download the application from our website." }, "answerKey": {} },
+  { "id": "e_006", "part": "E", "gse": 57, "difficulty": 3, "tags": ["workplace"], "content": { "text": "Our team has completed the first phase of the project." }, "answerKey": {} },
+  { "id": "e_007", "part": "E", "gse": 61, "difficulty": 4, "tags": ["customer service"], "content": { "text": "Customers who bought the product received a five percent discount." }, "answerKey": {} },
+  { "id": "e_008", "part": "E", "gse": 66, "difficulty": 4, "tags": ["workplace"], "content": { "text": "Several departments will collaborate on the upcoming marketing campaign." }, "answerKey": {} },
+  { "id": "e_009", "part": "E", "gse": 38, "difficulty": 1, "tags": ["daily life"], "content": { "text": "She lives near the train station." }, "answerKey": {} },
+  { "id": "e_010", "part": "E", "gse": 42, "difficulty": 2, "tags": ["office"], "content": { "text": "Turn off your monitor before leaving the office." }, "answerKey": {} },
+  { "id": "e_011", "part": "E", "gse": 46, "difficulty": 2, "tags": ["workplace"], "content": { "text": "We received your feedback regarding the new cafeteria menu." }, "answerKey": {} },
+  { "id": "e_012", "part": "E", "gse": 50, "difficulty": 3, "tags": ["communication"], "content": { "text": "The manager asked everyone to arrive fifteen minutes early." }, "answerKey": {} },
+  { "id": "e_013", "part": "E", "gse": 54, "difficulty": 3, "tags": ["finance"], "content": { "text": "Please verify all receipts before submitting your travel expenses." }, "answerKey": {} },
+  { "id": "e_014", "part": "E", "gse": 58, "difficulty": 4, "tags": ["technology"], "content": { "text": "The automated system sends a confirmation email within minutes." }, "answerKey": {} },
+  { "id": "e_015", "part": "E", "gse": 63, "difficulty": 4, "tags": ["operations"], "content": { "text": "The maintenance crew inspected the heating system over the weekend." }, "answerKey": {} },
+  { "id": "e_016", "part": "E", "gse": 68, "difficulty": 5, "tags": ["business"], "content": { "text": "The revised sales forecast indicates steady growth across Asian markets." }, "answerKey": {} },
+  { "id": "e_017", "part": "E", "gse": 71, "difficulty": 5, "tags": ["strategy"], "content": { "text": "Senior executives are discussing the proposed partnership behind closed doors." }, "answerKey": {} },
+  { "id": "e_018", "part": "E", "gse": 74, "difficulty": 5, "tags": ["governance"], "content": { "text": "Compliance officers must ensure all local regulations are strictly observed." }, "answerKey": {} }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "b_001", "part": "B", "gse": 40, "difficulty": 1, "tags": ["daily life"],
+    "content": { "passage": "Tom forgot his umbrella at home. It started to rain on his way to work, so he waited in a small shop until the rain stopped." },
+    "answerKey": { "keyIdeas": ["Tom forgot his umbrella at home", "it started to rain on the way to work", "he waited in a shop", "he waited until the rain stopped"] },
+    "modelAnswer": "Tom left his umbrella at home. On the way to work it began to rain, so he stayed in a small shop until the rain stopped."
+  },
+  {
+    "id": "b_002", "part": "B", "gse": 46, "difficulty": 2, "tags": ["workplace"],
+    "content": { "passage": "The café near our office now opens at seven in the morning. Many workers buy breakfast there before their shift starts, and the owner plans to add more tables next month." },
+    "answerKey": { "keyIdeas": ["the café near the office opens at seven", "many workers buy breakfast there", "they buy it before their shift starts", "the owner plans to add more tables next month"] },
+    "modelAnswer": "The café close to our office opens at 7 a.m. now. A lot of workers get breakfast there before starting their shift, and next month the owner wants to add more tables."
+  },
+  {
+    "id": "b_003", "part": "B", "gse": 52, "difficulty": 3, "tags": ["workplace"],
+    "content": { "passage": "Priya joined the company in March and was given a small project. She finished it two weeks early, so her manager asked her to lead a bigger team." },
+    "answerKey": { "keyIdeas": ["Priya joined the company in March", "she was given a small project", "she finished it two weeks early", "her manager asked her to lead a bigger team"] },
+    "modelAnswer": "Priya started at the company in March and received a small project. Because she completed it two weeks ahead of schedule, her manager asked her to lead a larger team."
+  },
+  {
+    "id": "b_004", "part": "B", "gse": 60, "difficulty": 4, "tags": ["customer service", "technology"],
+    "content": { "passage": "Last month the support team started using a new ticket system. Response times fell by a third, and customers reported higher satisfaction in the quarterly survey. The team now wants to use the same system for internal requests." },
+    "answerKey": { "keyIdeas": ["the support team started using a new ticket system last month", "response times fell by a third", "customers reported higher satisfaction in the survey", "the team wants to use the system for internal requests"] },
+    "modelAnswer": "A month ago, the support team began using a new ticketing system. Response times dropped by about a third and the quarterly survey showed customers were more satisfied. The team now plans to use the same system for internal requests too."
+  },
+  {
+    "id": "b_005", "part": "B", "gse": 66, "difficulty": 5, "tags": ["workplace"],
+    "content": { "passage": "Because the supplier delayed the shipment, the factory had to pause one of its production lines. Instead of sending staff home, managers moved them to quality checks until the missing parts arrived on Friday." },
+    "answerKey": { "keyIdeas": ["the supplier delayed the shipment", "the factory paused one production line", "staff were not sent home", "managers moved staff to quality checks", "the parts arrived on Friday"] },
+    "modelAnswer": "The supplier's shipment was late, so the factory stopped one production line. Rather than sending workers home, the managers assigned them to quality checks until the missing parts came on Friday."
+  },
+  {
+    "id": "b_006", "part": "B", "gse": 44, "difficulty": 2, "tags": ["daily life", "office"],
+    "content": { "passage": "The elevator in building B was out of service on Wednesday morning. Several employees chose to take the stairs, while others waited for the technician to complete the safety inspection." },
+    "answerKey": { "keyIdeas": ["elevator in building B was out of service", "occurred Wednesday morning", "some took the stairs", "others waited for the technician"] },
+    "modelAnswer": "On Wednesday morning, building B's elevator stopped working. Some employees climbed the stairs instead, while others waited until the technician finished inspecting it."
+  },
+  {
+    "id": "b_007", "part": "B", "gse": 50, "difficulty": 3, "tags": ["workplace", "training"],
+    "content": { "passage": "The human resources department scheduled an online cybersecurity seminar for Friday afternoon. Over eighty staff members attended the live session, and a recording was sent to anyone who was on leave." },
+    "answerKey": { "keyIdeas": ["HR scheduled an online cybersecurity seminar", "held Friday afternoon", "over eighty staff attended", "recording sent to staff on leave"] },
+    "modelAnswer": "HR held a cybersecurity webinar on Friday afternoon. More than 80 colleagues attended live, and the recording was emailed to everyone absent."
+  },
+  {
+    "id": "b_008", "part": "B", "gse": 58, "difficulty": 4, "tags": ["operations", "logistics"],
+    "content": { "passage": "To cut down on plastic packaging, the distribution warehouse switched to biodegradable cartons in June. Although the cartons cost slightly more, customer feedback was overwhelmingly positive and corporate clients increased their orders." },
+    "answerKey": { "keyIdeas": ["warehouse switched to biodegradable cartons in June", "goal was to reduce plastic packaging", "cartons cost slightly more", "feedback was positive and orders increased"] },
+    "modelAnswer": "In June, the distribution centre replaced plastic packaging with biodegradable cartons. Despite slightly higher costs, customers appreciated the eco-friendly change and corporate orders grew."
+  },
+  {
+    "id": "b_009", "part": "B", "gse": 64, "difficulty": 4, "tags": ["finance", "business"],
+    "content": { "passage": "The finance committee recommended postponing the office renovation until the next fiscal quarter. By delaying non-essential spending, the company maintained a healthy cash reserve during an unexpected economic slowdown." },
+    "answerKey": { "keyIdeas": ["finance committee recommended delaying office renovation", "postponed to next fiscal quarter", "delayed non-essential spending", "maintained cash reserve during economic slowdown"] },
+    "modelAnswer": "The finance team advised delaying office renovations to the next quarter. Pausing discretionary expenditure allowed the firm to protect its cash reserves during a market downturn."
+  },
+  {
+    "id": "b_010", "part": "B", "gse": 70, "difficulty": 5, "tags": ["technology", "strategy"],
+    "content": { "passage": "When the regional server experienced unexpected power fluctuations, the backup generator activated immediately. Although network latency increased briefly, automated monitoring protocols prevented data corruption across all client databases." },
+    "answerKey": { "keyIdeas": ["regional server suffered power fluctuations", "backup generator kicked in immediately", "network latency increased briefly", "automated monitoring prevented data corruption"] },
+    "modelAnswer": "A power surge hit the regional data centre, triggering the emergency backup generator instantly. Even though latency temporarily spiked, monitoring systems safeguarded all database integrity."
+  }
+]

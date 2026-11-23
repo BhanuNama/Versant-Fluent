@@ -1,0 +1,98 @@
+[
+  {
+    "id": "c_001", "part": "C", "gse": 46, "difficulty": 2, "tags": ["travel", "technology"],
+    "content": {
+      "title": "New app for train passengers",
+      "passage": "Starting next month, passengers on the Northline railway can buy tickets with a free mobile app. The app shows live train times and sends an alert if a train is delayed by more than five minutes. Passengers who buy a ticket in the app will save ten percent compared with the ticket office price. Paper tickets will still be available for people who do not use smartphones. The company says the app should also reduce queues at busy stations during the morning rush, when most commuters travel.",
+      "questions": [
+        { "q": "What is the main purpose of the article?", "options": ["To announce a new ticket app", "To explain why trains are often late", "To say the ticket office will close", "To advertise a new smartphone"] },
+        { "q": "How much can passengers save by buying tickets in the app?", "options": ["Five percent", "Ten percent", "Fifteen percent", "Nothing"] }
+      ]
+    },
+    "answerKey": { "answers": [0, 1], "questionGse": [42, 48] }
+  },
+  {
+    "id": "c_002", "part": "C", "gse": 52, "difficulty": 3, "tags": ["workplace"],
+    "content": {
+      "title": "A recycling scheme that worked",
+      "passage": "Greenfield Logistics introduced a recycling scheme in its main office last year. Colour-coded bins were placed in every kitchen, and staff received a short guide explaining what could be recycled. At first, many items ended up in the wrong bins. The facilities team responded by adding pictures to the bin labels and by sending a monthly email showing how much waste had been recycled. After six months, the amount of office waste sent to landfill had fallen by almost half. The company now plans to introduce the same scheme at its three warehouses.",
+      "questions": [
+        { "q": "What problem did the scheme have at first?", "options": ["There were not enough kitchens", "The bins were too expensive", "Nobody read the monthly email", "Staff put items in the wrong bins"] },
+        { "q": "What will the company do next?", "options": ["Stop the scheme in the main office", "Use the same scheme at its warehouses", "Remove the pictures from the labels", "Hire a new facilities team"] }
+      ]
+    },
+    "answerKey": { "answers": [3, 1], "questionGse": [50, 54] }
+  },
+  {
+    "id": "c_003", "part": "C", "gse": 56, "difficulty": 3, "tags": ["travel"],
+    "content": {
+      "title": "Cycle lanes for Riverside",
+      "passage": "Riverside City Council will add twelve kilometres of protected cycle lanes over the next two years. The first section, along Market Road, opens in April. Officials say low concrete barriers will separate bikes from traffic, which should make cycling safer for commuters and schoolchildren. Some shop owners on Market Road worried that losing parking spaces would reduce their sales, so the council has agreed to build a small car park behind the main square. A similar project in the nearby town of Elton increased the number of people cycling to work by thirty percent in its first year. The council will publish a progress report every six months.",
+      "questions": [
+        { "q": "What is the best title for this article?", "options": ["Shop owners close stores on Market Road", "Riverside plans safer routes for cyclists", "Elton builds a new car park", "Schoolchildren learn to cycle"] },
+        { "q": "Which statement matches a detail in the article?", "options": ["The whole project will be finished in April", "Cycling to work in Elton fell by thirty percent", "A car park will be built behind the main square", "The new lanes will have no barriers"] }
+      ]
+    },
+    "answerKey": { "answers": [1, 2], "questionGse": [52, 60] }
+  },
+  {
+    "id": "c_004", "part": "C", "gse": 64, "difficulty": 4, "tags": ["workplace", "technology"],
+    "content": {
+      "title": "Rethinking onboarding at Lumen Software",
+      "passage": "When Lumen Software moved to hybrid work, new employees often said their first weeks felt isolating. To address this, the company redesigned its onboarding programme. Each new hire is now paired with a buddy from a different team who checks in daily for the first two weeks. Instead of long video presentations, training is delivered in short, interactive sessions spread across the first month. Managers also schedule an in-person team day within each newcomer's first ten days. Early feedback suggests the changes are working: in a recent survey, eighty-five percent of new staff said they felt confident in their role after one month, compared with sixty percent the year before.",
+      "questions": [
+        { "q": "Why did Lumen change its onboarding programme?", "options": ["New employees felt isolated", "Managers wanted fewer meetings", "Video equipment was too expensive", "Staff asked to work fully in the office"] },
+        { "q": "What can be inferred from the survey results?", "options": ["Fewer people are joining the company", "Buddies are no longer needed after one week", "The new programme has improved new staff confidence", "Most new staff prefer long presentations"] }
+      ]
+    },
+    "answerKey": { "answers": [0, 2], "questionGse": [60, 68] }
+  },
+  {
+    "id": "c_005", "part": "C", "gse": 70, "difficulty": 5, "tags": ["workplace"],
+    "content": {
+      "title": "The four-hour focus block",
+      "passage": "A mid-sized design agency recently experimented with a simple rule: no internal meetings between nine and one on Tuesdays and Thursdays. The idea came from staff, who complained that constant interruptions made complex work almost impossible. Managers were initially sceptical, fearing that urgent decisions would be delayed. In practice, urgent issues were rare, and most could be handled by a short message. Over the three-month trial, the agency delivered projects slightly faster, and the number of revisions requested by clients dropped. Not everyone benefited equally, however; account managers, whose work depends on quick coordination, reported feeling cut off and asked for a shared channel for exceptions.",
+      "questions": [
+        { "q": "What was the managers' original concern?", "options": ["Projects would cost more", "Important decisions might be delayed", "Clients would ask for more revisions", "Staff would stop sending messages"] },
+        { "q": "What does the passage suggest about account managers?", "options": ["They proposed the original rule", "They were the main beneficiaries of the trial", "Their role made the rule harder to follow", "They stopped working on Tuesdays"] }
+      ]
+    },
+    "answerKey": { "answers": [1, 2], "questionGse": [64, 74] }
+  },
+  {
+    "id": "c_006", "part": "C", "gse": 54, "difficulty": 3, "tags": ["wellness", "workplace"],
+    "content": {
+      "title": "Ergonomics in the modern workspace",
+      "passage": "After an internal survey revealed that over forty percent of staff experienced mild neck or back strain, Apex Financial invested in ergonomic assessments for all employees. Consultants evaluated desk heights, monitor alignments, and seating postures, providing personalized adjustments and adjustable footrests. Staff were also encouraged to take five-minute movement breaks every hour using an automated desktop prompt. Three months after implementation, reported muscle fatigue dropped by half, and employee satisfaction scores rose significantly across all departments.",
+      "questions": [
+        { "q": "What prompted the company to invest in ergonomic assessments?", "options": ["Reports of physical discomfort among staff", "New government health regulations", "A reduction in office equipment costs", "An increase in employee resignations"] },
+        { "q": "What software tool was introduced to help employees?", "options": ["An automated desktop break reminder", "A posture tracking webcam application", "A digital medical insurance portal", "A daily task management calendar"] }
+      ]
+    },
+    "answerKey": { "answers": [0, 0], "questionGse": [50, 56] }
+  },
+  {
+    "id": "c_007", "part": "C", "gse": 62, "difficulty": 4, "tags": ["energy", "environment"],
+    "content": {
+      "title": "Transitioning to solar power",
+      "passage": "A manufacturing facility in northern Ohio installed four thousand rooftop solar panels last autumn. The installation aimed to offset high peak-hour electricity tariffs while reducing greenhouse emissions. During the sunny spring months, the solar array supplied nearly sixty-five percent of the facility's daylight electricity requirements, resulting in substantial utility savings. While battery storage systems remain too expensive for full overnight power independence, management expects the capital investment to pay for itself within six years through lower monthly operating expenses and regional clean-energy tax incentives.",
+      "questions": [
+        { "q": "Why hasn't the facility achieved overnight energy independence?", "options": ["Battery storage systems are currently too costly", "Rooftop panels do not function during spring", "Regional electricity tariffs increased at night", "Local tax regulations prohibit solar batteries"] },
+        { "q": "When does management anticipate breaking even on the solar investment?", "options": ["Within six years", "After twelve months", "In ten years", "Within two years"] }
+      ]
+    },
+    "answerKey": { "answers": [0, 0], "questionGse": [60, 62] }
+  },
+  {
+    "id": "c_008", "part": "C", "gse": 68, "difficulty": 5, "tags": ["leadership", "innovation"],
+    "content": {
+      "title": "The post-mortem culture at Novatech",
+      "passage": "At Novatech, when a major software deployment fails or encounters a service degradation, teams conduct a blameless post-mortem rather than assigning individual fault. The focus is exclusively on identifying procedural weaknesses, monitoring blind spots, and human factors that contributed to the outage. A written summary documenting the sequence of events and remediation action items is made transparent to all engineering teams. Industry researchers argue that such psychological safety fosters calculated experimentation, enabling technical organizations to innovate rapidly without fear of punitive repercussions.",
+      "questions": [
+        { "q": "What is the primary objective of a blameless post-mortem?", "options": ["Identifying systemic and procedural weaknesses", "Disciplining underperforming developers", "Replacing deprecated legacy hardware", "Reducing the frequency of software releases"] },
+        { "q": "According to researchers, how does psychological safety benefit the company?", "options": ["It encourages calculated experimentation and rapid innovation", "It guarantees that software will never experience bugs", "It eliminates the need for detailed incident documentation", "It reduces engineering salary expenditures"] }
+      ]
+    },
+    "answerKey": { "answers": [0, 0], "questionGse": [66, 70] }
+  }
+]
