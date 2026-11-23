@@ -132,6 +132,7 @@ sessionRouter.post('/:id/advance', requireAuth, async (req: Request, res: Respon
     const updated = await advancePart(session);
     if (updated.status === 'grading') {
       kickWorker();
+      await checkFinalizeSession(session._id);
     }
     const state = await getSessionState(session._id);
     return res.json(state);
@@ -154,7 +155,8 @@ sessionRouter.post('/:id/submit', requireAuth, async (req: Request, res: Respons
     });
 
     kickWorker();
-    return res.json({ status: 'grading' });
+    const finalized = await checkFinalizeSession(session._id);
+    return res.json({ status: finalized ? 'complete' : 'grading' });
   } catch (err: any) {
     return res.status(400).json({ error: { code: 'BAD_REQUEST', message: err.message } });
   }
@@ -162,7 +164,7 @@ sessionRouter.post('/:id/submit', requireAuth, async (req: Request, res: Respons
 
 // Server-sent events for grading progress
 sessionRouter.get('/:id/events', requireAuth, async (req: Request, res: Response) => {
-  const session = await db().sessions.get(String(req.params.id));
+  let session = await db().sessions.get(String(req.params.id));
   if (!session || session.userId !== req.user!.uid) {
     return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Session not found' } });
   }
@@ -172,17 +174,19 @@ sessionRouter.get('/:id/events', requireAuth, async (req: Request, res: Response
   res.setHeader('Connection', 'keep-alive');
   res.flushHeaders?.();
 
-  // Send initial event
+  // Finalize immediately if all jobs are already done (e.g. instant parts A/C/E/F)
+  await checkFinalizeSession(session._id);
+  session = (await db().sessions.get(session._id)) || session;
+
   const answers = await db().answers.find({ sessionId: session._id });
   const done = answers.filter((a) => a.scoringStatus === 'scored').length;
-  res.write(`data: ${JSON.stringify({ status: session.status, total: answers.length, done, stage: 'transcribing' })}\n\n`);
 
   addSseSubscriber(session._id, res);
 
-  // If already done, finalize check
   if (session.status === 'complete') {
     res.write(`data: ${JSON.stringify({ status: 'complete', total: answers.length, done: answers.length, stage: 'done' })}\n\n`);
   } else {
+    res.write(`data: ${JSON.stringify({ status: session.status, total: answers.length, done, stage: 'transcribing' })}\n\n`);
     kickWorker();
   }
 });

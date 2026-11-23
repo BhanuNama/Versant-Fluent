@@ -106,7 +106,10 @@ async function processNextJob(): Promise<boolean> {
       updatedAt: nowIso(),
     });
 
-    if (!retryable) {
+    if (retryable) {
+      // Schedule worker wakeup after retry backoff so delayed retries don't stall
+      setTimeout(() => kickWorker(), backoffMs + 150);
+    } else {
       // Mark answer as failed / zero credit so session doesn't hang forever
       const ans = await db().answers.get(job.answerId);
       if (ans && ans.itemScore === null) {
@@ -172,12 +175,25 @@ export async function checkFinalizeSession(sessionId: string): Promise<boolean> 
 
   // We finalize if session is in 'grading' status OR all parts are answered
   const answers = await db().answers.find({ sessionId });
-  const pendingJobs = await db().jobs.count({
+  // Reclaim stale 'running' jobs older than 90s and wake queued jobs
+  const staleCutoff = new Date(Date.now() - 90_000).toISOString();
+  const activeJobs = await db().jobs.find({
     sessionId,
     status: { $in: ['queued', 'running'] },
   });
 
-  if (pendingJobs > 0) {
+  if (activeJobs.length > 0) {
+    const now = nowIso();
+    let shouldKick = false;
+    for (const j of activeJobs) {
+      if (j.status === 'running' && j.updatedAt < staleCutoff) {
+        await db().jobs.update(j._id, { status: 'queued', runAfter: now, updatedAt: now });
+        shouldKick = true;
+      } else if (j.status === 'queued' && j.runAfter <= now) {
+        shouldKick = true;
+      }
+    }
+    if (shouldKick) kickWorker();
     await broadcastSessionProgress(sessionId);
     return false;
   }

@@ -26,21 +26,28 @@ export function EvaluatingPage() {
       withCredentials: true,
     });
 
-    const startPollingFallback = () => {
-      if (pollInterval !== null || cancelled) return;
-      pollInterval = window.setInterval(async () => {
-        try {
-          const res = await api.getResult(sessionId);
-          if (res.status === 'complete' && !cancelled) {
-            if (pollInterval !== null) clearInterval(pollInterval);
-            eventSource.close();
-            navigate(`/results/${sessionId}`);
-          }
-        } catch {
-          // keep waiting
+    const checkResultNow = async () => {
+      if (cancelled) return;
+      try {
+        const res = await api.getResult(sessionId);
+        if (res.status === 'complete' && !cancelled) {
+          cancelled = true;
+          if (pollInterval !== null) clearInterval(pollInterval);
+          eventSource.close();
+          setProgress((p) => ({ ...p, status: 'complete', stage: 'done' }));
+          setTimeout(() => {
+            navigate(`/results/${sessionId}`, { replace: true });
+          }, 300);
         }
-      }, 2500);
+      } catch {
+        // still grading or waiting
+      }
     };
+
+    // Always run an immediate check + 1.5s backup polling alongside SSE
+    // so instant parts and cross-origin Bearer-token sessions never stall
+    checkResultNow();
+    pollInterval = window.setInterval(checkResultNow, 1500);
 
     eventSource.onmessage = (event) => {
       try {
@@ -48,11 +55,12 @@ export function EvaluatingPage() {
         if (!cancelled) setProgress(data);
 
         if (data.status === 'complete' && !cancelled) {
+          cancelled = true;
           eventSource.close();
           if (pollInterval !== null) clearInterval(pollInterval);
           setTimeout(() => {
-            if (!cancelled) navigate(`/results/${sessionId}`);
-          }, 800);
+            navigate(`/results/${sessionId}`, { replace: true });
+          }, 400);
         }
       } catch (e) {
         console.error('SSE parse error:', e);
@@ -61,7 +69,6 @@ export function EvaluatingPage() {
 
     eventSource.onerror = () => {
       eventSource.close();
-      startPollingFallback();
     };
 
     return () => {
