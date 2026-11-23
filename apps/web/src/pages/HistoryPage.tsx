@@ -116,10 +116,20 @@ export function HistoryPage() {
                   </div>
 
                   <div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <span className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">
-                        {h.mode === 'full' ? 'Full 10-Part Assessment' : `Part ${h.parts[0]} Practice`}
+                        {h.mode === 'full' ? 'Full 10-Part Assessment' : `Part ${h.parts[0]} Section Test`}
                       </span>
+                      {h.level && (
+                        <Badge variant="neutral" size="sm" className="capitalize">
+                          {h.level}
+                        </Badge>
+                      )}
+                      {h.marks && (
+                        <Badge variant="accent" size="sm">
+                          {h.marks.earned}/{h.marks.total} Marks ({h.marks.percentage}%)
+                        </Badge>
+                      )}
                       <Badge variant="purple" size="sm">
                         {h.cefr}
                       </Badge>

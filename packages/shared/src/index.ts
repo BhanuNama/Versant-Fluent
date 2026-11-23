@@ -185,6 +185,7 @@ export const createSessionSchema = z
     mode: z.enum(['full', 'part']),
     part: partIdSchema.optional(),
     level: z.enum(['easy', 'medium', 'hard']).default('medium').optional(),
+    questionCount: z.number().int().min(1).max(20).optional(),
   })
   .refine((v) => v.mode === 'full' || !!v.part, { message: 'part is required for practice mode' });
 
@@ -268,6 +269,7 @@ export interface Capabilities {
 export interface SessionState {
   sessionId: string;
   mode: 'full' | 'part';
+  level?: 'easy' | 'medium' | 'hard';
   status: 'in_progress' | 'grading' | 'complete' | 'abandoned';
   parts: PartId[];
   partIndex: number;
@@ -328,6 +330,8 @@ export interface PartResult {
   name: string;
   skill: Skill;
   score: number;
+  earnedMarks?: number;
+  totalMarks?: number;
   feedback: string;
   items: AnswerReview[];
 }
@@ -338,7 +342,9 @@ export interface SessionResult {
   status: 'grading' | 'complete';
   sessionId: string;
   mode: 'full' | 'part';
+  level?: 'easy' | 'medium' | 'hard';
   createdAt: string;
+  marks?: { earned: number; total: number; percentage: number };
   overall: { gse: number; range: [number, number]; cefr: string; versant: number };
   skills: Partial<Record<Skill, SkillResult>>;
   parts: PartResult[];
@@ -358,8 +364,10 @@ export interface GradingProgress {
 export interface HistoryEntry {
   sessionId: string;
   mode: 'full' | 'part';
+  level?: 'easy' | 'medium' | 'hard';
   parts: PartId[];
   createdAt: string;
+  marks?: { earned: number; total: number; percentage: number };
   gse: number;
   range: [number, number];
   cefr: string;

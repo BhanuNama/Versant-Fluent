@@ -24,8 +24,10 @@ meRouter.get('/history', requireAuth, async (req: Request, res: Response) => {
       return {
         sessionId: r.sessionId,
         mode: r.mode,
+        level: r.level,
         parts: r.parts,
         createdAt: r.createdAt,
+        marks: r.marks,
         gse: r.gseEstimate,
         range: r.gseRange,
         cefr: r.cefr,

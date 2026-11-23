@@ -135,9 +135,9 @@ export function LandingPage() {
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
 
-          <Link to="/dashboard" className="w-full sm:w-auto">
+          <Link to="/dashboard#section-test" className="w-full sm:w-auto">
             <Button variant="secondary" size="lg" className="w-full">
-              Practice a Single Part
+              Section-Specific Test
             </Button>
           </Link>
         </motion.div>
@@ -254,7 +254,7 @@ export function LandingPage() {
             return (
               <Link
                 key={p}
-                to={`/test/practice/${p}`}
+                to={`/dashboard?part=${p}#section-test`}
                 className="group p-5 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 hover:border-indigo-400 dark:hover:border-indigo-600 transition-all shadow-sm hover:shadow-card flex flex-col justify-between"
               >
                 <div>

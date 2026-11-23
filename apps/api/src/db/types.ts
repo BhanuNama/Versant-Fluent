@@ -32,6 +32,7 @@ export interface SessionDoc {
   _id: string;
   userId: string;
   mode: 'full' | 'part';
+  level?: 'easy' | 'medium' | 'hard';
   parts: PartId[];
   partIndex: number;
   itemIds: Partial<Record<PartId, string[]>>;
@@ -107,8 +108,11 @@ export interface ResultDoc {
   sessionId: string;
   userId: string;
   mode: 'full' | 'part';
+  level?: 'easy' | 'medium' | 'hard';
   parts: PartId[];
   partScores: Partial<Record<PartId, number>>;
+  partMarks?: Partial<Record<PartId, { earned: number; total: number }>>;
+  marks?: { earned: number; total: number; percentage: number };
   skillScores: Partial<Record<Skill, { gse: number; sd: number; halfWidth: number; range: [number, number]; cefr: string }>>;
   overall01: number;
   gseEstimate: number;

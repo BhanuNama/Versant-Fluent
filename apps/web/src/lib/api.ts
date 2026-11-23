@@ -59,7 +59,7 @@ export const api = {
     request<{ user: PublicUser | null }>('/api/auth/me'),
 
   // Sessions
-  createSession: (body: { mode: 'full' | 'part'; part?: PartId; level?: 'easy' | 'medium' | 'hard' }) =>
+  createSession: (body: { mode: 'full' | 'part'; part?: PartId; level?: 'easy' | 'medium' | 'hard'; questionCount?: number }) =>
     request<SessionState>('/api/sessions', { method: 'POST', body: JSON.stringify(body) }),
   getSessionState: (id: string) =>
     request<SessionState>(`/api/sessions/${id}`),

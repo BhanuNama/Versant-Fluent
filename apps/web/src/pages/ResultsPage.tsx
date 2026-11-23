@@ -100,7 +100,8 @@ export function ResultsPage() {
     );
   }
 
-  const { overall, skills, parts, disclaimer } = result;
+  const { overall, skills, parts, disclaimer, marks, mode, level } = result;
+  const primarySection = parts[0];
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10 space-y-10">
@@ -113,8 +114,15 @@ export function ResultsPage() {
       >
         <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
           <Badge variant="purple" size="md">
-            Practice Estimate
+            {mode === 'part' && primarySection
+              ? `Section Test • Part ${primarySection.part}: ${primarySection.name}`
+              : 'Practice Estimate'}
           </Badge>
+          {level && (
+            <Badge variant="neutral" size="md" className="capitalize">
+              {level} Level
+            </Badge>
+          )}
           <Badge variant="neutral" size="md">
             CEFR Level {overall.cefr}
           </Badge>
@@ -123,29 +131,68 @@ export function ResultsPage() {
           </Badge>
         </div>
 
-        <h1 className="text-sm font-semibold uppercase tracking-wider text-zinc-500">
-          Estimated Overall GSE Score
-        </h1>
+        {/* Marks + GSE Hero Summary */}
+        {marks && marks.total > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto my-6 items-center">
+            <div className="p-6 rounded-2xl bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-200/70 dark:border-indigo-900/50">
+              <h1 className="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+                {mode === 'part' ? 'Section Marks' : 'Total Marks'}
+              </h1>
+              <div className="mt-2 flex items-baseline justify-center gap-2">
+                <span className="text-5xl font-extrabold tracking-tight tabular-nums text-zinc-950 dark:text-white">
+                  {marks.earned}
+                </span>
+                <span className="text-xl text-zinc-500 font-semibold">
+                  / {marks.total}
+                </span>
+              </div>
+              <div className="mt-2 text-sm font-bold text-indigo-700 dark:text-indigo-300">
+                {marks.percentage}% Accuracy
+              </div>
+            </div>
 
-        <div className="my-4 flex items-baseline justify-center gap-3">
-          <span className="text-6xl sm:text-7xl font-extrabold tracking-tight tabular-nums text-zinc-950 dark:text-white">
-            {displayScore}
-          </span>
-          <span className="text-base sm:text-lg text-zinc-400 font-medium">
-            / 90
-          </span>
-        </div>
+            <div className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-200/70 dark:border-zinc-700/60">
+              <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                Estimated GSE Score
+              </h2>
+              <div className="mt-2 flex items-baseline justify-center gap-2">
+                <span className="text-5xl font-extrabold tracking-tight tabular-nums text-zinc-950 dark:text-white">
+                  {displayScore}
+                </span>
+                <span className="text-base text-zinc-400 font-medium">/ 90</span>
+              </div>
+              <div className="mt-2 text-xs font-medium text-zinc-500">
+                Range: <span className="font-bold text-zinc-800 dark:text-zinc-200">{overall.range[0]} – {overall.range[1]} GSE</span>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <>
+            <h1 className="text-sm font-semibold uppercase tracking-wider text-zinc-500">
+              Estimated Overall GSE Score
+            </h1>
 
-        {/* Displayed Range Band (Spec 8.6 & 22.3) */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200/60 dark:border-zinc-700/60 text-xs font-medium text-zinc-700 dark:text-zinc-300">
-          <span>Estimated Range:</span>
-          <span className="font-bold tabular-nums text-zinc-900 dark:text-zinc-100">
-            {overall.range[0]} – {overall.range[1]} GSE
-          </span>
-          <span className="text-zinc-400 font-normal">
-            (±{Math.round((overall.range[1] - overall.range[0]) / 2)} pts)
-          </span>
-        </div>
+            <div className="my-4 flex items-baseline justify-center gap-3">
+              <span className="text-6xl sm:text-7xl font-extrabold tracking-tight tabular-nums text-zinc-950 dark:text-white">
+                {displayScore}
+              </span>
+              <span className="text-base sm:text-lg text-zinc-400 font-medium">
+                / 90
+              </span>
+            </div>
+
+            {/* Displayed Range Band (Spec 8.6 & 22.3) */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200/60 dark:border-zinc-700/60 text-xs font-medium text-zinc-700 dark:text-zinc-300">
+              <span>Estimated Range:</span>
+              <span className="font-bold tabular-nums text-zinc-900 dark:text-zinc-100">
+                {overall.range[0]} – {overall.range[1]} GSE
+              </span>
+              <span className="text-zinc-400 font-normal">
+                (±{Math.round((overall.range[1] - overall.range[0]) / 2)} pts)
+              </span>
+            </div>
+          </>
+        )}
 
         <p className="mt-4 text-xs text-zinc-400 max-w-md mx-auto">
           {disclaimer}
@@ -256,7 +303,12 @@ export function ResultsPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
+                  {p.earnedMarks !== undefined && p.totalMarks !== undefined && (
+                    <Badge variant="purple" size="sm">
+                      {p.earnedMarks} / {p.totalMarks} Marks
+                    </Badge>
+                  )}
                   <span className="font-bold text-base tabular-nums text-indigo-600 dark:text-indigo-400">
                     {p.score}%
                   </span>
@@ -278,7 +330,7 @@ export function ResultsPage() {
                         <div className="flex items-center gap-2">
                           {item.gse && <Badge variant="neutral">{item.gse} GSE</Badge>}
                           <Badge variant={item.score >= 0.7 ? 'success' : item.score >= 0.4 ? 'warning' : 'neutral'}>
-                            Score: {Math.round(item.score * 100)}%
+                            {Math.round(item.score * 10) / 10} / 1 mark ({Math.round(item.score * 100)}%)
                           </Badge>
                         </div>
                       </div>

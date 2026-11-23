@@ -27,10 +27,13 @@ function PracticeLauncher() {
       }
       const searchParams = new URLSearchParams(window.location.search);
       const level = (searchParams.get('level') as 'easy' | 'medium' | 'hard') || 'medium';
+      const countRaw = Number(searchParams.get('count'));
+      const questionCount = Number.isFinite(countRaw) && countRaw >= 1 && countRaw <= 20 ? countRaw : undefined;
       const session = await api.createSession({
         mode: 'part',
         part: (partId?.toUpperCase() || 'A') as PartId,
         level,
+        questionCount,
       });
       navigate(`/test/${session.sessionId}`, { replace: true });
     }

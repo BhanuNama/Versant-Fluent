@@ -145,7 +145,8 @@ export async function createSession(
   userId: string,
   mode: 'full' | 'part',
   targetPart?: PartId,
-  level: 'easy' | 'medium' | 'hard' = 'medium'
+  level: 'easy' | 'medium' | 'hard' = 'medium',
+  questionCount?: number
 ): Promise<SessionDoc> {
   const parts: PartId[] = mode === 'full' ? [...PARTS] : [targetPart!];
   const itemIds: Partial<Record<PartId, string[]>> = {};
@@ -172,7 +173,12 @@ export async function createSession(
 
   for (const part of parts) {
     const meta = PART_META[part];
-    const needed = mode === 'full' ? meta.fullCount : meta.practiceCount;
+    const needed =
+      mode === 'part' && questionCount
+        ? Math.max(1, Math.min(20, questionCount))
+        : mode === 'full'
+        ? meta.fullCount
+        : meta.practiceCount;
     let candidates = allLive.filter((it) => it.part === part);
 
     // Calculate unseen candidates for this difficulty level
@@ -184,18 +190,25 @@ export async function createSession(
 
     const unseenInLevel = levelFiltered.filter((c) => !pastSeenItemIds.has(c._id));
 
-    // If unseen items in the target level are insufficient, dynamically generate fresh items with Groq AI!
+    // If unseen items in the target level are insufficient, dynamically generate fresh items in chunks via Groq AI!
     if (unseenInLevel.length < needed) {
-      const toGenerate = Math.max(needed - unseenInLevel.length + 2, 3);
+      let remaining = needed - unseenInLevel.length + (needed <= 5 ? 2 : 0);
       try {
         console.log(
-          `[sessionService] User ${userId} has only ${unseenInLevel.length}/${needed} unseen items for Part ${part} (${level}). Generating ${toGenerate} brand-new questions via Groq AI...`
+          `[sessionService] User ${userId} has ${unseenInLevel.length}/${needed} unseen items for Part ${part} (${level}). Generating ${remaining} brand-new questions via Groq AI...`
         );
-        const generated = await generatePartItems(part, toGenerate, level);
-        for (const item of generated) {
-          await db().items.insert(item);
-          candidates.push(item);
-          allLive.push(item);
+        while (remaining > 0) {
+          const batchSize = Math.min(remaining, 5);
+          const generated = await generatePartItems(part, batchSize, level);
+          for (const item of generated) {
+            await db().items.insert(item);
+            candidates.push(item);
+            allLive.push(item);
+          }
+          remaining -= batchSize;
+          if (remaining > 0) {
+            await new Promise((r) => setTimeout(r, 600));
+          }
         }
       } catch (genErr: any) {
         console.warn(`[sessionService] Dynamic item generation warning for Part ${part}: ${genErr.message}`);
@@ -221,6 +234,7 @@ export async function createSession(
     _id: newId('sess'),
     userId,
     mode,
+    level,
     parts,
     partIndex: 0,
     itemIds,
@@ -268,6 +282,7 @@ export async function getSessionState(sessionId: string): Promise<SessionState |
   return {
     sessionId: session._id,
     mode: session.mode,
+    level: session.level,
     status: session.status,
     parts: session.parts,
     partIndex: session.partIndex,

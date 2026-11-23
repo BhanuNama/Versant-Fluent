@@ -28,7 +28,13 @@ export const sessionRouter = Router();
 sessionRouter.post('/', requireAuth, async (req: Request, res: Response) => {
   try {
     const body = createSessionSchema.parse(req.body);
-    const session = await createSession(req.user!.uid, body.mode, body.part, body.level || 'medium');
+    const session = await createSession(
+      req.user!.uid,
+      body.mode,
+      body.part,
+      body.level || 'medium',
+      body.questionCount
+    );
     const state = await getSessionState(session._id);
     return res.json(state);
   } catch (err: any) {

@@ -40,17 +40,40 @@ export function aggregateSession(
     }
   }
 
-  // 1. Part scores (0..100) = mean of item scores in that part * 100
+  // 1. Part scores (0..100) & marks across all assigned items in each part
   const partScores: Partial<Record<PartId, number>> = {};
+  const partMarks: Partial<Record<PartId, { earned: number; total: number }>> = {};
+  let totalEarnedMarks = 0;
+  let totalPossibleMarks = 0;
+
   for (const part of session.parts) {
     const partAns = answersByPart[part] || [];
-    if (partAns.length === 0) {
-      partScores[part] = 0;
-      continue;
+    const assignedIds = session.itemIds[part] || [];
+    let expectedTotal = 0;
+    for (const id of assignedIds) {
+      if (part === 'G') {
+        const it = itemMap.get(id);
+        expectedTotal += it?.content?.questions?.length || 3;
+      } else {
+        expectedTotal += 1;
+      }
     }
+    const denom = Math.max(expectedTotal, partAns.length);
     const sum = partAns.reduce((acc, a) => acc + (a.itemScore ?? 0), 0);
-    partScores[part] = Math.round((sum / partAns.length) * 100);
+    const earned = Math.round(sum * 10) / 10;
+
+    partMarks[part] = { earned, total: denom };
+    partScores[part] = denom > 0 ? Math.round((sum / denom) * 100) : 0;
+    totalEarnedMarks += sum;
+    totalPossibleMarks += denom;
   }
+
+  const roundedEarned = Math.round(totalEarnedMarks * 10) / 10;
+  const marks = {
+    earned: roundedEarned,
+    total: totalPossibleMarks,
+    percentage: totalPossibleMarks > 0 ? Math.round((totalEarnedMarks / totalPossibleMarks) * 100) : 0,
+  };
 
   // 2. Skill ability estimates
   const skillScores: ResultDoc['skillScores'] = {};
@@ -150,8 +173,11 @@ export function aggregateSession(
     sessionId: session._id,
     userId: session.userId,
     mode: session.mode,
+    level: session.level,
     parts: session.parts,
     partScores,
+    partMarks,
+    marks,
     skillScores,
     overall01: Math.round(overall01 * 1000) / 1000,
     gseEstimate: overallGse,
