@@ -50,6 +50,18 @@ export function TestRunnerPage() {
     };
   }, [sessionId]);
 
+  // Redirect automatically if session is already grading or complete (prevents restarting from first)
+  useEffect(() => {
+    if (!session) return;
+    if (session.status === 'complete') {
+      stopAllSpeech();
+      navigate(`/results/${session.sessionId}`, { replace: true });
+    } else if (session.status === 'grading') {
+      stopAllSpeech();
+      navigate(`/evaluating/${session.sessionId}`, { replace: true });
+    }
+  }, [session?.status, session?.sessionId, navigate]);
+
   const currentPart: PartId = (session?.part || (partId as PartId) || 'A') as PartId;
   const meta = PART_META[currentPart];
   const currentItem = session?.items ? session.items[currentItemIndex] : undefined;
@@ -109,9 +121,14 @@ export function TestRunnerPage() {
     } else {
       // Part complete! Advance to next part or submit
       const nextState = await api.advancePart(session.sessionId);
+      if (nextState.status === 'complete') {
+        stopAllSpeech();
+        navigate(`/results/${session.sessionId}`, { replace: true });
+        return;
+      }
       if (nextState.status === 'grading') {
         stopAllSpeech();
-        navigate(`/evaluating/${session.sessionId}`);
+        navigate(`/evaluating/${session.sessionId}`, { replace: true });
         return;
       }
       setSession(nextState);
